@@ -25,7 +25,6 @@
     "@fastify/jwt": "^7.0.0",
     "@fastify/multipart": "^7.6.0",
     "@prisma/client": "^4.14.1",
-    "@supabase/supabase-js": "^2.24.0",
     "axios": "^1.4.0",
     "fastify": "^4.17.0",
     "zod": "^3.21.4"

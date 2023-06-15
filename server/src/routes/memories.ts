@@ -21,7 +21,11 @@ export async function memoriesRoutes(app: FastifyInstance) {
       return {
         id: memory.id,
         coverUrl: memory.coverUrl,
-        excerpt: memory.content.substring(0, 115).concat('...'),
+        excerpt:
+          memory.content.length > 115
+            ? memory.content.substring(0, 115).concat('...')
+            : memory.content,
+        createdAt: memory.createdAt,
       }
     })
   })
@@ -46,7 +50,7 @@ export async function memoriesRoutes(app: FastifyInstance) {
     return memory
   })
 
-  app.post('/memories/', async (request) => {
+  app.post('/memories', async (request) => {
     const bodySchema = z.object({
       content: z.string(),
       coverUrl: z.string(),
